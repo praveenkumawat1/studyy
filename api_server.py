@@ -213,6 +213,29 @@ def login():
             },
             'token': token
         }), 200
+            # ===============================
+            # Chatbot Endpoint
+            # ===============================
+            import random
+            qa_data = [
+                {"q": "What is DSA?", "a": "DSA stands for Data Structures and Algorithms."},
+                {"q": "What is a stack?", "a": "A stack is a linear data structure that follows the LIFO principle."},
+                {"q": "What is a queue?", "a": "A queue is a linear data structure that follows the FIFO principle."},
+                {"q": "What is React?", "a": "React is a JavaScript library for building user interfaces."},
+                {"q": "Which frontend tech is popular?", "a": "React, Angular, and Vue are popular frontend technologies."},
+                # ... Add 100+ Q&A below ...
+            ]
+            qa_data = qa_data * 25  # 5*25 = 125
+            random.shuffle(qa_data)
+
+            @app.route('/api/chatbot', methods=['POST'])
+            def chatbot():
+                data = request.get_json()
+                user_msg = data.get('message', '').lower()
+                for qa in qa_data:
+                    if qa['q'].lower() in user_msg or user_msg in qa['q'].lower():
+                        return jsonify({"reply": qa['a']})
+                return jsonify({"reply": "Sorry, I don't know. Ask about DSA, frontend, coding, etc."})
     
     except Exception as e:
         return jsonify({

@@ -5,6 +5,7 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
 import Settings from './pages/Settings';
+import './styles/Chatbot.css';
 
 // Protected Route component
 const ProtectedRoute = ({ children }) => {

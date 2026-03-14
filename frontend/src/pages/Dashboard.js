@@ -147,7 +147,9 @@ const fetchData = async () => {
   return (
     <div className="dashboard-container">
       <Navigation />
-
+      <div style={{ position: 'fixed', bottom: 20, right: 20, zIndex: 1000 }}>
+        <Chatbot />
+      </div>
       <div className="dashboard-content">
         <div className="dashboard-header">
           <h2>📊 Study Dashboard</h2>
