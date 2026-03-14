@@ -1,6 +1,7 @@
 {
   "name": "study-tracker-frontend",
   "version": "1.0.0",
+  "homepage": "https://praveenkumawat1.github.io/studyy",
   "description": "Modern React frontend for AI-based Study Tracker",
   "private": true,
   "proxy": "http://localhost:5000",
@@ -15,6 +16,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
